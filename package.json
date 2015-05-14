@@ -1,0 +1,27 @@
+{
+  "name": "tlog-parsing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "logger.js",
+  "dependencies": {
+    "mavlink_ardupilotmega_v1.0": "^0.0.2",
+    "node-stringify": "0.0.18",
+    "serialport": "^1.7.1",
+    "sprintf-js": "^1.0.2",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arctic-fire-development/tlog-parsing.git"
+  },
+  "author": "Rayjan Wilson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arctic-fire-development/tlog-parsing/issues"
+  },
+  "homepage": "https://github.com/arctic-fire-development/tlog-parsing#readme"
+}
