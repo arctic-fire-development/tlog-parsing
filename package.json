@@ -4,7 +4,7 @@
   "description": "",
   "main": "logger.js",
   "dependencies": {
-    "mavlink_ardupilotmega_v1.0": "^0.0.2",
+    "mavlink_ardupilotmega_v1.0": "file:./etc/mavlink_ardupilotmega_v1.0.tgz",
     "node-stringify": "0.0.18",
     "serialport": "^1.7.1",
     "sprintf-js": "^1.0.2",
