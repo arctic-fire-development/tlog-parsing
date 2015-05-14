@@ -9,13 +9,14 @@
 
 var SerialPort = require("serialport"),
     fs = require("fs"),
-    port = process.argv[2],
     baudrate = process.argv[3],
     active = false,
     MAVLink = require("mavlink_ardupilotmega_v1.0"),
     sprintf = require("sprintf-js").sprintf,
     stringify = require('node-stringify'),
-    _ = require('underscore');
+    _ = require('underscore'),
+    os = require('os'),
+    glob = require('glob');
 
 
 var uavSysId = 1;
@@ -25,11 +26,13 @@ var mavlinkParser = new MAVLink();
 
 //var messages = fs.readFileSync(process.argv[2]);
 
+var getUSBSerial = function() {
+    var usbSerialPath = (os.platform() === 'darwin') ? '/dev/cu.usbserial-*' : '/dev/ttyUSB*';
+    console.log('usb serial: auto-detecting');
+    return glob.sync(usbSerialPath)[0];
+};
 
-// Example of doing cheap/fast log analysis here: we just want some values from mission items.
-// mavlinkParser.on('MISSION_ITEM', function(message) {
-//   console.log(sprintf('X %4.6f, Y %4.6f, Z %4.6f', message.x, message.y, message.z));
-// });
+var port = getUSBSerial();
 
 // Example of converting the entire file at once
 mavlinkParser.on('message', function(message) {
